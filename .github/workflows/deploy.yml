@@ -44,4 +44,4 @@ jobs:
 
         - name: Ouputs loadbalancer dns adress
           run: |
-            terraform output -raw lb_address
+            terraform output

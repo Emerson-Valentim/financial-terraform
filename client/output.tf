@@ -1,5 +1,5 @@
 output "lb_address" {
-  value = module.infra.config.dns_name
+  value = module.infra.config.lb_address
 }
 
 output "service" {
