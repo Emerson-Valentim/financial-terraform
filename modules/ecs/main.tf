@@ -82,6 +82,10 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
           {
             "name" : "TZ",
             "value" : "America/Sao_Paulo"
+          },
+          {
+            "name" : "LOGGING",
+            "value": "true"
           }
         ],
         "essential" : true,
@@ -155,6 +159,10 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
           {
             "name" : "TZ",
             "value" : "America/Sao_Paulo"
+          },
+          {
+            "name" : "LOGGING",
+            "value": "true"
           }
         ],
         "essential" : false,
