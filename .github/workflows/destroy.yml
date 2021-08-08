@@ -11,7 +11,7 @@ on:
         required: true
 
 jobs:
-    deploy-infra:
+    destroy-infra:
 
       runs-on: ubuntu-latest
       
