@@ -28,7 +28,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   requires_compatibilities = ["FARGATE"]
 
   memory = 512
-  cpu    = 512
+  cpu    = 256
 
   container_definitions = jsonencode(
     [
@@ -57,7 +57,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
           },
           {
             "name" : "DB_PORT",
-            "value" : "${var.database.port}"
+            "value" : "${tostring(var.database.port)}"
           },
           {
             "name" : "DB_USER",
@@ -95,7 +95,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
           }
         },
         "mountPoints" : [],
-        "name" : "sda-api-container",
+        "name" : "financial-api",
         "portMappings" : [
           {
             "containerPort" : 3333,

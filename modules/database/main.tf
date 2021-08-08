@@ -14,7 +14,7 @@ resource "aws_db_instance" "rds_db" {
   publicly_accessible = true
 
   vpc_security_group_ids = var.network.security_groups.database
-  db_subnet_group_name   = var.network.vpc
+  db_subnet_group_name   = "default-${var.network.vpc}"
 
   parameter_group_name = "default.postgres12"
 
