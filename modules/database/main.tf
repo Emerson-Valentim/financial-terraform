@@ -1,5 +1,5 @@
 resource "aws_db_instance" "rds_db" {
-  identifier = "${lower(var.common.alias)}-database"
+  identifier = "${var.common.alias}-database"
 
   engine                     = "postgres"
   engine_version             = "12.5"

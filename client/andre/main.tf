@@ -5,7 +5,7 @@ variable "common" {
     })
     default = {
         environment = "production",
-        alias = "Andre"
+        alias = "andre"
     }
 }
 
