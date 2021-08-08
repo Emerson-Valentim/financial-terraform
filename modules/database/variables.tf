@@ -8,3 +8,11 @@ variable "common" {
         alias = "none"
     }
 }
+
+variable "authentication" {
+    type = object({
+        username = string
+        password = string
+        port = number
+    })
+}

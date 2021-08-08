@@ -8,3 +8,8 @@ variable "common" {
         alias = "None"
     }
 }
+
+variable "log_groups" {
+    type = list(string)
+    default = ["api"]
+}

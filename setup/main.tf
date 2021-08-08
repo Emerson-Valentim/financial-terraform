@@ -18,7 +18,7 @@ provider "aws" {
 module "database" {
   source = "../modules/database"
 
-  database = {
+  authentication = {
     username = "postgres"
     password = "postgres"
     port     = 5432
