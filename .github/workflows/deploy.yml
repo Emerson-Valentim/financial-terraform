@@ -1,0 +1,36 @@
+name: Build and deploy development
+
+on: 
+  workflow_dispatch:
+     inputs:
+      environment:
+        description: "Environment variable"
+        required: true
+      alias:
+        description: "Alias variable"
+        required: true
+
+jobs:
+    deploy-infra:
+
+      runs-on: hashicorp/terraform
+
+      steps:
+        - name: Check out repository code
+          uses: actions/checkout@v2
+
+        - name: Configure AWS Credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: sa-east-1
+
+        - name: Enter config folder and init terraform
+          run: |
+            cd client && terraform init
+
+        - name: Run terraform apply
+          run: |
+            terraform apply -var='common={"environment"="${{github.event.inputs.environment}}", "alias"="${{github.event.inputs.alias}}"}'
+
