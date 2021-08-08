@@ -29,11 +29,11 @@ module "database" {
   network = var.network
 }
 
-# module "cloudwatch" {
-#   source     = "../modules/cloudwatch"
-#   common     = var.common
-#   log_groups = ["api"]
-# }
+module "cloudwatch" {
+  source     = "../modules/cloudwatch"
+  common     = var.common
+  log_groups = ["api"]
+}
 
 # module "load_balancer" {
 #   source  = "../modules/load_balancer"
