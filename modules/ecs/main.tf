@@ -109,6 +109,10 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
         "cpu" : 0,
         "environment" : [
           {
+            "name" : "APP_KEY",
+            "value" : "iq90dswa90fi091i20fdisa9ujf9p1jfdp"
+          },
+          {
             "name" : "DB_CONNECTION",
             "value" : "pg"
           },
@@ -133,8 +137,20 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
             "value" : "${var.database.username}"
           },
           {
+            "name" : "HEADER_API_KEY",
+            "value" : "aXRhw7o="
+          },
+          {
+            "name" : "HOST",
+            "value" : "0.0.0.0"
+          },
+          {
             "name" : "NODE_ENV",
             "value" : "${var.common.environment}"
+          },
+          {
+            "name" : "PORT",
+            "value" : "3333"
           },
           {
             "name" : "TZ",
