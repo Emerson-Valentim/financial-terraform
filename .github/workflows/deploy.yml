@@ -41,3 +41,7 @@ jobs:
         - name: Save state file on S3
           run: |
             aws s3 cp terraform.tfstate s3://financial-terraform-states/${{github.event.inputs.alias}}_${{github.event.inputs.environment}}/terraform.tfstate
+
+        - name: Ouputs loadbalancer dns adress
+          run: |
+            terraform output -raw lb_address
