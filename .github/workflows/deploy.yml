@@ -38,3 +38,6 @@ jobs:
           run: |
             terraform apply -auto-approve -var='common={"environment"="${{github.event.inputs.environment}}", "alias"="${{github.event.inputs.alias}}"}'
 
+        - name: Save state file on S3
+          run: |
+            aws s3 cp terraform.tfstate s3://financial-terraform-states/${{github.event.inputs.alias}}
