@@ -29,8 +29,13 @@ jobs:
         - name: Enter config folder and init terraform
           run: |
             cd client && terraform init
+        
+        - name: Debug
+          run: |
+            ls
+
 
         - name: Run terraform apply
           run: |
-            terraform apply -var='common={"environment"="${{github.event.inputs.environment}}", "alias"="${{github.event.inputs.alias}}"}'
+            terraform apply -var='common={"environment"="${{github.event.inputs.environment}}", "alias"="${{github.event.inputs.alias}}"} -auto-approve'
 
