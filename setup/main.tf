@@ -34,7 +34,7 @@ module "database" {
 module "cloudwatch" {
   source     = "../modules/cloudwatch"
   common     = var.common
-  log_groups = ["api"]
+  log_groups = ["api", "migration"]
 }
 
 module "load_balancer" {
