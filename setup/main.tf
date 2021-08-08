@@ -25,23 +25,25 @@ module "database" {
   }
   
   common = var.common
-}
 
-module "cloudwatch" {
-  source     = "../modules/cloudwatch"
-  common     = var.common
-  log_groups = ["api"]
-}
-
-module "load_balancer" {
-  source  = "../modules/load_balancer"
-  common  = var.common
   network = var.network
 }
 
-module "ecs" {
-  source               = "../modules/ecs"
-  common               = var.common
-  network              = var.network
-  database        = module.database.database_config
-}
+# module "cloudwatch" {
+#   source     = "../modules/cloudwatch"
+#   common     = var.common
+#   log_groups = ["api"]
+# }
+
+# module "load_balancer" {
+#   source  = "../modules/load_balancer"
+#   common  = var.common
+#   network = var.network
+# }
+
+# module "ecs" {
+#   source               = "../modules/ecs"
+#   common               = var.common
+#   network              = var.network
+#   database        = module.database.database_config
+# }
