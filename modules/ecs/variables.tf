@@ -33,16 +33,16 @@ variable "network" {
 variable "database" {
   description = "Default database configs"
   type = object({
-    host = string
-    username      = string
-    password      = string
-    port          = number
+    host     = string
+    username = string
+    password = string
+    port     = number
   })
   default = {
-    host = ""
-    username      = ""
-    password      = ""
-    port          = 0
+    host     = ""
+    username = ""
+    password = ""
+    port     = 0
   }
 }
 
