@@ -1,12 +1,12 @@
 variable "common" {
-    type = object({
-        environment = string
-        alias = string
-    })
-    default = {
-        environment = "production",
-        alias = "andre"
-    }
+  type = object({
+    environment = string
+    alias       = string
+  })
+  default = {
+    environment = "production",
+    alias       = "andre"
+  }
 }
 
 module "infra" {

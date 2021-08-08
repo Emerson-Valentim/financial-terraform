@@ -23,7 +23,7 @@ module "database" {
     password = "postgres"
     port     = 5432
   }
-  
+
   common = var.common
 
   network = var.network
@@ -35,11 +35,11 @@ module "cloudwatch" {
   log_groups = ["api"]
 }
 
-# module "load_balancer" {
-#   source  = "../modules/load_balancer"
-#   common  = var.common
-#   network = var.network
-# }
+module "load_balancer" {
+  source  = "../modules/load_balancer"
+  common  = var.common
+  network = var.network
+}
 
 # module "ecs" {
 #   source               = "../modules/ecs"
