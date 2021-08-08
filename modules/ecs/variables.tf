@@ -29,3 +29,33 @@ variable "network" {
     vpc     = ""
   }
 }
+
+variable "database" {
+  description = "Default database configs"
+  type = object({
+    host = string
+    username      = string
+    password      = string
+    port          = number
+  })
+  default = {
+    host = ""
+    username      = ""
+    password      = ""
+    port          = 0
+  }
+}
+
+variable "load_balancer" {
+  description = "Load balancer config"
+  type = object({
+    dns_name     = string
+    zone_id      = string
+    target_group = string
+  })
+  default = {
+    dns_name     = ""
+    zone_id      = ""
+    target_group = ""
+  }
+}

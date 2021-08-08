@@ -41,9 +41,10 @@ module "load_balancer" {
   network = var.network
 }
 
-# module "ecs" {
-#   source               = "../modules/ecs"
-#   common               = var.common
-#   network              = var.network
-#   database        = module.database.database_config
-# }
+module "ecs" {
+  source        = "../modules/ecs"
+  common        = var.common
+  network       = var.network
+  database      = module.database.config
+  load_balancer = module.load_balancer.config
+}
