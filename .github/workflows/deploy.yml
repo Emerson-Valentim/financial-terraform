@@ -42,6 +42,6 @@ jobs:
           run: |
             aws s3 cp terraform.tfstate s3://financial-terraform-states/${{github.event.inputs.alias}}_${{github.event.inputs.environment}}/terraform.tfstate
 
-        - name: Ouputs loadbalancer dns adress
+        - name: Ouputs useful variables
           run: |
             terraform output
