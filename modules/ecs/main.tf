@@ -28,7 +28,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   requires_compatibilities = ["FARGATE"]
 
   memory = 512
-  cpu    = 512
+  cpu    = 256
 
   container_definitions = jsonencode(
     [
