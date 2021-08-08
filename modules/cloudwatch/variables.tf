@@ -11,5 +11,5 @@ variable "common" {
 
 variable "log_groups" {
   type    = list(string)
-  default = ["api"]
+  default = ["api", "migration"]
 }
