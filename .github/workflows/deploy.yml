@@ -25,6 +25,10 @@ jobs:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: sa-east-1
+        
+        - name: Debug
+          run: |
+            ls
 
         - name: Enter config folder and init terraform
           run: |
