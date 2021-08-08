@@ -104,6 +104,66 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
           }
         ],
         "volumesFrom" : []
+      },
+      {
+        "cpu" : 0,
+        "environment" : [
+          {
+            "name" : "DB_CONNECTION",
+            "value" : "pg"
+          },
+          {
+            "name" : "DB_HOST",
+            "value" : "${var.database.host}"
+          },
+          {
+            "name" : "DB_NAME",
+            "value" : "financial_${var.common.alias}"
+          },
+          {
+            "name" : "DB_PASSWORD",
+            "value" : "${var.database.password}"
+          },
+          {
+            "name" : "DB_PORT",
+            "value" : "${tostring(var.database.port)}"
+          },
+          {
+            "name" : "DB_USER",
+            "value" : "${var.database.username}"
+          },
+          {
+            "name" : "NODE_ENV",
+            "value" : "${var.common.environment}"
+          },
+          {
+            "name" : "TZ",
+            "value" : "America/Sao_Paulo"
+          }
+        ],
+        "essential" : false,
+        "image" : "488735367158.dkr.ecr.sa-east-1.amazonaws.com/financial-api:dev_latest",
+        "logConfiguration" : {
+          "logDriver" : "awslogs",
+          "options" : {
+            "awslogs-group" : "/ecs/financial-api/${var.common.alias}/migration",
+            "awslogs-region" : "sa-east-1",
+            "awslogs-stream-prefix" : "ecs"
+          }
+        },
+        "mountPoints" : [],
+        "workingDirectory" : "/home/node/app",
+        "name" : "financial-api-migration",
+        "entryPoint" : [
+          "yarn",
+          "migrate"
+        ],
+        "portMappings" : [],
+        "command" : [
+          "yarn",
+          "migrate"
+        ],
+        "volumesFrom" : []
       }
     ]
   )
