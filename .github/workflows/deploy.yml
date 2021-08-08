@@ -1,4 +1,4 @@
-name: Build and deploy development
+name: Deploy Infra
 
 on: 
   workflow_dispatch:
@@ -40,4 +40,4 @@ jobs:
 
         - name: Save state file on S3
           run: |
-            aws s3 cp terraform.tfstate s3://financial-terraform-states/${{github.event.inputs.alias}}/terraform.tfstate
+            aws s3 cp terraform.tfstate s3://financial-terraform-states/${{github.event.inputs.alias}}_${{github.event.inputs.environment}}/terraform.tfstate
