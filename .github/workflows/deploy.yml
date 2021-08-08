@@ -36,5 +36,5 @@ jobs:
 
         - name: Run terraform apply
           run: |
-            terraform apply -var='common={"environment"="${{github.event.inputs.environment}}", "alias"="${{github.event.inputs.alias}}"} -auto-approve'
+            terraform apply -auto-approve -var='common={"environment"="${{github.event.inputs.environment}}", "alias"="${{github.event.inputs.alias}}"}'
 
