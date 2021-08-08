@@ -10,6 +10,6 @@ variable "common" {
 }
 
 module "infra" {
-  source = "../../setup"
+  source = "../setup"
   common = var.common
 }
