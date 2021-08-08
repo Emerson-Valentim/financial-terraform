@@ -11,8 +11,10 @@ terraform {
 }
 
 provider "aws" {
-  profile = "default"
-  region  = "sa-east-1"
+  profile    = "default"
+  region     = "sa-east-1"
+  access_key = "AKIAXDSXF373FOUM74NG"
+  secret_key = "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"
 }
 
 module "database" {
