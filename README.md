@@ -49,8 +49,7 @@ As variáveis environment e alias são referentes as configurações de nome e t
 
 Diagrama da infraestrutra que será provisionada:
 
-
-![Infra](https://user-images.githubusercontent.com/69153761/128944938-d12953c3-2d26-4768-bc5d-5893baea3128.png)
+![Infra](https://user-images.githubusercontent.com/69153761/128945254-e6eeeec6-70ea-451b-a663-da99770024c4.png)
 
 ## Executando
 
