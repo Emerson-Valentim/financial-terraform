@@ -49,7 +49,8 @@ As variáveis environment e alias são referentes as configurações de nome e t
 
 Diagrama da infraestrutra que será provisionada:
 
-[Imagem]
+
+![Infra](https://user-images.githubusercontent.com/69153761/128944938-d12953c3-2d26-4768-bc5d-5893baea3128.png)
 
 ## Executando
 
@@ -96,4 +97,4 @@ Como foi citado anteriormente, o repositorio está configurado com *Github Actio
 - Na action de deploy, inserir o valor do alias e do environment, e toda a infraestrutura será provisionada. É possível verificar o endpoint gerado na etapa de *Outputs useful variables*, na chave lb_address.
 - Na action de destroy, inserir o mesmo valor de alias e environment que foi enviado no momento de deploy e toda a infraestrutura será destruída. É *importante* executar essa action sempre que terminar de utilizar o ambiente, minha AWS não é mais gratuita.
 
-Um ponto importante no provisionamento do load balancer é o pequeno delay para o mapeamento do target.
+Um ponto importante no provisionamento do load balancer é o pequeno delay para o mapeamento do target. Os arquivos de estado estão sendo mantidos em uma S3, toda vez que uma ação de deploy é executada o upload é realizado e quando a ação de destroy é acionada o arquivo é resgatado, permitindo assim o controle dos múltiplos ambientes. 
